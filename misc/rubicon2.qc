@@ -1,12 +1,3 @@
-//selections from Rubicon 2 qc by john fitzgibbons
-//and AD breakable code modified by Qmaster,iw and dumptruck_ds
-float 	BREAKABLE_NO_MONSTERS = 1;
-float		BREAK_EXPLODE = 2;
-float		BREAK_CUSTOM = 4;
-float		START_OFF = 1;
-float		SPARKS_BLUE = 2;
-float		SPARKS_PALE = 4;
-
 void() make_breakable_debris;
 
 /*
@@ -583,7 +574,6 @@ void() trigger_ladder =
 func_laser
 ===============================================================================
 */
-float LASER_SOLID = 2;
 .string		message2;
 .float		alpha;
 

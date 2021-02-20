@@ -111,7 +111,7 @@ void() door_fire =
 
 // self.noise4 is now played in keylock_try_to_unlock -- iw
 
-	self.message = string_null;		// no more message
+	self.message = STRING_NULL;		// no more message
 	oself = self;
 
 	if (self.spawnflags & DOOR_TOGGLE)
@@ -552,7 +552,7 @@ void () fd_secret_use =
 	if (self.origin != self.oldorigin)
 		return;
 
-	self.message = string_null;		// no more message
+	self.message = STRING_NULL;		// no more message
 
 	SUB_UseTargets();				// fire all targets / killtargets
 

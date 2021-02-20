@@ -1,0 +1,1012 @@
+==============================================================================
+
+System Variables
+
+/!\ CAUTION /!\
+
+These variables are also handled by the engine, so tampering with them may
+break the game.
+
+==============================================================================
+
+
+
+==================================================
+Source for GLOBALVARS_T C structure in engine code
+==================================================
+
+-------------------------------------------------------------
+entity self
+
+Represents the current game entity for entity field functions
+(Can I temporarily overwrite this to "hack" builtins?)
+-------------------------------------------------------------
+
+
+--------------------------------------------------------------
+entity other
+
+Represents the touching entity when a .touch function is fired
+(Can I temporarily overwrite this to "hack" builtins?)
+--------------------------------------------------------------
+
+
+------------------------------------------------------------
+entity world
+
+Represents the current map, also used as a "not found" value
+------------------------------------------------------------
+
+
+----------------------------
+float time
+
+Elapsed game time in seconds
+It uses only .10 precision
+----------------------------
+
+
+------------------------------------
+float frametime
+
+(Unverified)
+Elapsed time since last frame render
+Used for strict real-time changes
+------------------------------------
+
+
+------------------------------------------------------------------------
+float force_retouch
+
+Forces every entity to do touch checks for the next N frames
+Spawned entities should set this to 2 (SYS_FORCE_RETOUCH)
+2 frames ensure that every entity was checked
+This is required to touch-check still entities (i.e. spawned X teleport)
+------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+string mapname
+
+The filename of the map (as invoked with the "map" console command)
+-------------------------------------------------------------------
+
+
+-----------------------------
+float deathmatch
+
+TRUE if we're in a deathmatch
+-----------------------------
+
+
+----------------------------
+float coop
+
+TRUE if we're in a coop game
+----------------------------
+
+
+----------------------------
+float teamplay
+
+TRUE if we're in a team game
+----------------------------
+
+---------------------------------
+float serverflags
+
+Propagated from level to level
+Keeps track of completed episodes
+---------------------------------
+
+--------------------------------------
+float total_secrets
+
+Displayed total of secrets in the map
+Can be incremented for "super secrets"
+--------------------------------------
+
+-------------------------------------------------------------
+float total_monsters
+
+Displayed total of killable monsters in the map
+Can be incremented for dynamically spawned or secret monsters
+-------------------------------------------------------------
+
+------------------------------------------
+float found_secrets
+
+Number of secrets found secrets in the map
+------------------------------------------
+
+------------------------------------------
+float killed_monsters
+
+Number of secrets found secrets in the map
+------------------------------------------
+
+-------------------------------------------------------
+float parm1
+
+Encodes client.items across the server
+
+They encode information about clients across the server
+Level changes
+-------------------------------------------------------
+
+---------------------------------------
+float parm2
+
+Encodes client.health across the server
+---------------------------------------
+
+-------------------------------------------
+float parm3
+
+Encodes client.armorvalue across the server
+-------------------------------------------
+
+--------------------------------------------
+float parm4
+
+Encodes client.ammo_shells across the server
+--------------------------------------------
+
+-------------------------------------------
+float parm5
+
+Encodes client.ammo_nails across the server
+-------------------------------------------
+
+---------------------------------------------
+float parm6
+
+Encodes client.ammo_rockets across the server
+---------------------------------------------
+
+-------------------------------------------
+float parm7
+
+Encodes client.ammo_cells across the server
+-------------------------------------------
+
+---------------------------------------
+float parm8
+
+Encodes client.weapon across the server
+---------------------------------------
+
+------------------------------------------------
+float parm9
+
+Encodes client.armortype * 100 across the server
+------------------------------------------------
+
+------------
+float parm10
+
+(Unverified)
+------------
+
+------------
+float parm11
+
+(Unverified)
+------------
+
+------------
+float parm12
+
+(Unverified)
+------------
+
+------------
+float parm13
+
+(Unverified)
+------------
+
+------------
+float parm14
+
+(Unverified)
+------------
+
+------------
+float parm15
+
+(Unverified)
+------------
+
+------------
+float parm16
+
+(Unverified)
+------------
+
+--------------------------------------------
+vector v_forward
+
+Output of makevectors (built-in #1)
+The calculated forward direction unit-vector
+--------------------------------------------
+
+-------------------------------------------
+vector v_up
+
+Output of makevectors (built-in #1)
+The calculated upward direction unit-vector
+-------------------------------------------
+
+----------------------------------------------
+float v_right
+
+Output of makevectors (built-in #1)
+The calculated rightward direction unit-vector
+----------------------------------------------
+
+--------------------------------------
+float trace_allsolid
+
+(Unverified)
+Output of traceline and tracebox
+TRUE if the entire trace is in a solid
+--------------------------------------
+
+-----------------------------------------------------
+float trace_startsolid
+
+(Unverified)
+Output of traceline and tracebox
+TRUE if the starting point of the trace is in a solid
+-----------------------------------------------------
+
+-------------------------------------------------------
+float trace_fraction
+
+Output of traceline and tracebox
+Fraction of distance covered before hitting an obstacle
+1.0 if no obstacle was hit
+-------------------------------------------------------
+
+---------------------------------------------
+vector trace_endpos
+
+Output of traceline and tracebox
+Position where trace ended or hit an obstacle
+---------------------------------------------
+
+----------------------------------------
+vector trace_plane_normal
+
+(Unverified)
+Output of traceline and tracebox
+The directional vector of the trace
+----------------------------------------
+
+-----------------------------------
+float trace_plane_dist
+
+(Unverified)
+Output of traceline and tracebox
+Distance of trace until obstruction
+-----------------------------------
+
+---------------------------------------------
+entity trace_ent
+
+Output of traceline and tracebox
+Entity hit by trace (if trace_fraction < 1.0)
+---------------------------------------------
+
+--------------------------------
+float trace_inopen
+
+Output of traceline and tracebox
+TRUE if trace crossed air
+--------------------------------
+
+--------------------------------
+float trace_inwater
+
+Output of traceline and tracebox
+TRUE if trace crossed liquid
+--------------------------------
+
+--------------------------------------
+entity msg_entity
+
+The entity to send MSG_ONE messages to
+--------------------------------------
+
+-----------------------------------------
+void() main
+
+Main function
+Used for progs testing outside the engine
+-----------------------------------------
+
+--------------------------------------------------------
+void() StartFrame
+
+Function called by the engine at the start of each frame
+--------------------------------------------------------
+
+-------------------------------------------------------
+void() PlayerPreThink
+
+Function called by the engine before each physics check
+"self" is current player
+-------------------------------------------------------
+
+------------------------------------------------------
+void() PlayerPostThink
+
+Function called by the engine after each physics check
+"self" is current player
+------------------------------------------------------
+
+-----------------------------------------------------------------------
+void() ClientKill
+
+Function called by the engine when a client suicides via "kill" command
+-----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+void() ClientConnect
+
+Function called by the engine when a client connects to the current game
+Does the usual join announcements
+------------------------------------------------------------------------
+
+------------------------------------------------------------------
+void() PutClientInServer
+
+Function called by the engine when a client connects to the server
+Call this after setting the parm1... parms
+------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+void() ClientDisconnect
+
+Function called by the engine when a client disconnects from the server
+Does the usual leave announcements
+-----------------------------------------------------------------------
+
+------------------------------------------------------------------
+void() SetNewParms
+
+Function called by the engine when a client connects to the server
+It initializes and assigns parm1-parm16 to the client
+------------------------------------------------------------------
+
+------------------------------------------------------
+void() SetChangeParms
+
+Function called by the engine on level transition
+Revives dead players, clamps health, removes keys etc.
+Finally sets parm1-16 to what each parm represents
+------------------------------------------------------
+
+------------------------------------------------
+void end_sys_globals
+
+A marker for the compiler to export GLOBALVARS_T
+------------------------------------------------
+
+
+
+===============================================
+Source for ENTVARS_T C structure in engine code
+===============================================
+
+-----------------------------------
+.float modelindex
+
+(Read only)
+Entity model index in precache-list
+-----------------------------------
+
+------------------------------
+.vector absmin
+
+(Read only)
+Entity left-rear-bottom corner
+.origin + .mins
+------------------------------
+
+-----------------------------
+.vector absmax
+
+(Read only)
+Entity right-front-top corner
+.origin + .maxs
+-----------------------------
+
+-------------------------------------------------
+.float ltime
+
+Entity-local time
+Used with moving brush entities and shooter traps
+-------------------------------------------------
+
+------------------------------------------------------------------------------
+.float movetype
+
+Entity mobility enum
+  0: None (ignores gravity, ignores collision)
+  1: Angle-noclip (unused, unverified)
+  2: Angle-clip (unused, unverified)
+  3: Walk (moves realtime, applies gravity, applies collision, used by player)
+  4: Step (moves frame-by-frame, applies gravity, applies collision)
+  5: Fly (ignores gravity, applies collision)
+  6: Toss (applies gravity, applies collision)
+  7: Push (ignores gravity, applies entity collision, used by func)
+  8: No-clip (moves, ignores gravity, ignores collision)
+  9: Fly-missile (ignores gravity, applies collision, add volume for monsters)
+  10: Bounce (applies gravity, applies bouncy collision)
+  11: Bounce-missile (applies gravity, applies bouncy collision, add volume
+      for monsters)
+------------------------------------------------------------------------------
+
+---------------------------------------------------
+.float solid
+
+Entity material
+  0: Not (pass-thru, untouchable)
+  1: Trigger (pass-thru, touchable)
+  2: Bounding-box (blocking, touchable, on-ground)
+  3: Slide-box (blocking, touchable, NOT on-ground)
+  4: BSP (blocking, touchable, on-ground, sloped)
+---------------------------------------------------
+
+----------------------
+.vector origin
+
+(Read only)
+Entity anchor position
+----------------------
+
+-----------------------------------------------------------------------------
+.vector oldorigin
+
+(Read only)
+Entity anchor position from previous frame
+Use with .origin to verify movement
+TODO: cap velocity_z to "origindiff_z" when sliding to avoid phantom fall bug
+-----------------------------------------------------------------------------
+
+-------------------------------------------------
+.vector velocity
+
+Entity velocity vector
+This is the distance it will move along each axis
+-------------------------------------------------
+
+---------------------
+.vector angles
+
+Entity orientation
+Pitch, yaw, roll
+Read only for players
+---------------------
+
+--------------------------------
+.vector avelocity
+
+Entity turn speeds
+Pitch, yaw, roll
+(Possibly read only for players)
+--------------------------------
+
+----------------------------
+.vector punchangle
+
+Entity temporary view offset
+Pitch, yaw, roll
+Used for damage and recoil
+----------------------------
+
+--------------------------------
+.string classname
+
+Entity spawn function identifier
+Allows checks for entity class
+--------------------------------
+
+---------------------------
+.string model
+
+Entity model path in progs/
+---------------------------
+
+--------------------------------
+.float frame
+
+Entity's current animation frame
+--------------------------------
+
+------------------------------
+.float skin
+
+Entity's current texture index
+------------------------------
+
+--------------------------------------
+.float effects
+
+Entity's special effect flags
+  1: Bright field (with particles)
+  2: Muzzle flash (once)
+  4: Bright light (e.g. Quad)
+  8: Dim light (e.g. laser projectile)
+--------------------------------------
+
+----------------------------------------------
+.vector mins
+
+Entity origin-relative left-rear-bottom corner
+----------------------------------------------
+
+---------------------------------------------
+.vector maxs
+
+Entity origin-relative right-front-top corner
+---------------------------------------------
+
+-----------------------------
+.vector size
+
+Entity dimensions (maxs-mins)
+Width, length, height
+-----------------------------
+
+---------------------------------------
+.void() touch
+
+Entity touch function
+Uses self to designate touched
+Uses other to designate touching entity
+---------------------------------------
+
+------------------------------------
+.void() use
+
+(Unverified)
+Entity use function
+Uses self to designate used
+Uses other to designate using entity
+------------------------------------
+
+------------------------------------
+.void() think
+
+Entity current AI think function
+Runs when time or ltime > .nextthink
+------------------------------------
+
+------------------------------------------
+.void() blocked
+
+Entity cannot proceed in current direction
+Used by SOLID_PUSH type entitites
+------------------------------------------
+
+------------------------------------------
+.float nextthink
+
+Entity next timestamp to continue thinking
+------------------------------------------
+
+-------------------------------------------
+.entity groundentity
+
+(Unused, unverified)
+Entity's "floor" entity (while FL_ONGROUND)
+-------------------------------------------
+
+---------------------------
+.float health
+
+Entity vitals
+100: healthy player
+200-250: megahealthy player
+1+: shootable switch
+0: dead or undamageable
+---------------------------
+
+--------------------------------------------
+.float frags
+
+Entity kill/suicide scale
+Used for tracking player score in deathmatch
+Displayed at end of deathmatch
+--------------------------------------------
+
+------------------------------------------
+.float weapon
+
+Entity's current weapon
+Player's selected weapon
+  1: shotgun
+  2: double-barreled shotgun
+  4: nailgun
+  8: perforator
+  16: grenade launcher
+  32: rocket launcher
+  64: thunderbolt
+  128: unused weapon 9
+  4096: axe
+Probably sets the current ammo icon on HUD
+------------------------------------------
+
+----------------------------------
+.string weaponmodel
+
+Entity's held weapon path
+Player's first-person weapon model
+----------------------------------
+
+------------------------------------------------
+.float weaponframe
+
+Current animation frame of entity's .weaponmodel
+------------------------------------------------
+
+---------------------------------------------------
+.float currentammo
+
+Entity's current weapon ammo
+Used in player's HUD (selected weapon's ammo count)
+Used in ltrail_* entities to set damage
+---------------------------------------------------
+
+----------------------------
+.float ammo_shells
+
+Entity's current shell ammo
+Used in player's HUD as well
+----------------------------
+
+----------------------------
+.float ammo_nails
+
+Entity's current nail ammo
+Used in player's HUD as well
+----------------------------
+
+----------------------------
+.float ammo_rockets
+
+Entity's current rocket ammo
+Used in player's HUD as well
+----------------------------
+
+----------------------------
+.float ammo_cells
+
+Entity's current cell ammo
+Used in player's HUD as well
+----------------------------
+
+--------------------------------
+.float items
+
+Entity's current inventory flags
+Used in player's HUD as well
+Use IT_* flags to manage
+--------------------------------
+
+-------------------------------------------------
+.float takedamage
+
+Entity's projectile interaction type enum
+  0: No (cannot be damaged)
+  1: Yes (takes damage, doesn't set off grenades)
+  2: Aim (takes damage, sets off grenades)
+-------------------------------------------------
+
+--------------------------------------
+.entity chain
+
+Entity's sequel when set for iteration
+Used by findradius()
+--------------------------------------
+
+-----------------------------------
+.float deadflag
+
+Entity's stage of dying enum
+  0: No (alive)
+  1: Dying (collapsing)
+  2: Dead (no longer moving)
+  3: Respawnable (awaiting respawn)
+-----------------------------------
+
+--------------------------------------
+.vector view_ofs
+
+Entity eye position relative to origin
+Monsters use it for aiming
+--------------------------------------
+
+--------------------------
+.float button0
+
+Entity fire button pressed
+Used by client
+--------------------------
+
+-------------------------
+.float button1
+
+Entity use button pressed
+Used by client
+-------------------------
+
+--------------------------
+.float button2
+
+Entity jump button pressed
+Used by client
+--------------------------
+
+------------------------------------------------
+.float impulse
+
+Current entity impulse being sent
+Used for client weapon switching and cheats
+Normally the impulse is reset after each readout
+------------------------------------------------
+
+----------------------------------------------------------
+.float fixangle
+
+If TRUE, entity will snap to angle without delay/animation
+Used with cutscenes, intermission and teleports
+----------------------------------------------------------
+
+-------------------------------
+.vector v_angle
+
+Entity view and targeting angle
+Used for player
+Pitch, yaw, roll
+-------------------------------
+
+----------------------------------------------------
+.float idealpitch
+
+Entity's correct pitch angle to look up/down a slope
+----------------------------------------------------
+
+----------------------------------------------------
+.string netname
+
+Entity's display name for status messages
+Client nickname
+Item name
+----------------------------------------------------
+
+--------------------------------
+.entity enemy
+
+Entity's currently hunted target
+Used by monsters
+--------------------------------
+
+--------------------------------------------------------------------------
+.float flags
+
+Entity state flags
+  1: Fly
+  2: Swim
+  4: (unused)
+  8: Client (set for every client)
+  16: In water (entity touches liquid)
+  32: Monster (set for every monster)
+  64: God mode (god mode cheat active)
+  128: No target (no monster wake cheat active)
+  256: Item (extra width for pickup)
+  512: On ground (all 4 bottom corners on horizontal surface)
+  1024: Partial ground (some bottom corners are not on horizontal surface)
+  2048: Water jump (currently "jumping" out of water)
+  4096: Jump released (player must not bunnyhop" automatically)
+--------------------------------------------------------------------------
+
+-------------------------------
+.float colormap
+
+Entity shirt color
+Recolors yellow shirt on entity
+-------------------------------
+
+-------------------------------
+.float team
+
+Entity team and pants color
+Recolors orange pants on entity
+-------------------------------
+
+---------------------
+.float max_health
+
+Entity maximum health
+E.g. 100 for player
+---------------------
+
+-------------------------------------------------
+.float teleport_time
+
+Player cannot backpedal or waterjump while active
+-------------------------------------------------
+
+----------------------------------------
+.float armortype
+
+Entity armor damage prevention fraction:
+  0.3 = green armor
+  0.6 = yellow armor
+  0.8 = red armor
+----------------------------------------
+
+----------------------------
+.float armorvalue
+
+Entity current armor health:
+  100: green armor
+  150: yellow armor
+  200: red armor
+----------------------------
+
+-------------------------------------
+.float waterlevel
+
+Entity liquid submergence depth enum:
+  0: Dry
+  1: Feet
+  2: Waist
+  3: Eyes
+-------------------------------------
+
+---------------------------
+.float watertype
+
+Entity liquid content type:
+  -1: Empty
+  -2: Solid
+  -3: Water
+  -4: Slime
+  -5: Lava
+  -6: Sky
+---------------------------
+
+--------------------------------
+.float ideal_yaw
+
+Direction the entity should face
+Used for animating a turn
+--------------------------------
+
+------------------------------
+.float yaw_speed
+
+Amount of yaw change over time
+Used for animating a turn
+------------------------------
+
+------------------------------
+.entity aiment
+
+(Unused, unverified)
+------------------------------
+
+----------------------------
+.entity goalentity
+
+The entity to advance toward
+----------------------------
+
+--------------------------------------------
+.spawnflags
+
+.float spawnflags
+Entity instance configuration flags
+Set by the mapper (purpose depends on class)
+--------------------------------------------
+
+---------------------------------------------
+.string target
+
+Entity to activate
+Every targetname is activated
+Normally invoked on touch or health depletion
+---------------------------------------------
+
+------------------------
+.string targetname
+
+Entity activation name
+Every targeter activates
+------------------------
+
+----------------------------------------------
+.float dmg_take
+
+Accumulated damage entity registers this frame
+----------------------------------------------
+
+------------------------------------------------
+.float dmg_save
+
+Accumulated damage entity armor takes this frame
+------------------------------------------------
+
+----------------------------------------
+.entity dmg_inflictor
+
+Direct damage source (e.g. a projectile)
+Only same as "attacker" if melee
+Can be used for damage AI-based effects
+----------------------------------------
+
+----------------------------------------
+.entity owner
+
+Entity spawn parent (usually projectile)
+----------------------------------------
+
+-------------------------------
+.vector movedir
+
+Entity direction of motion/open
+-------------------------------
+
+----------------------------------------------
+.string message
+
+Entity message to display to activator
+Also map (world) title (e.g. Slipgate Complex)
+----------------------------------------------
+
+---------------------------
+.float sounds
+
+Entity soundboard to select
+Also map (world) CD track
+TODO: should be enumerable
+---------------------------
+
+------------------------
+.string noise
+
+Entity sound file path 1
+Used for emitted sounds
+------------------------
+
+------------------------
+.string noise1
+
+Entity sound file path 2
+Used for emitted sounds
+------------------------
+
+------------------------
+.string noise2
+
+Entity sound file path 3
+Used for emitted sounds
+------------------------
+
+------------------------
+.string noise3
+
+Entity sound file path 4
+Used for emitted sounds
+------------------------
+
+---------------------------------------------
+void end_sys_fields
+
+A marker for the compiler to export ENTVARS_T
+---------------------------------------------

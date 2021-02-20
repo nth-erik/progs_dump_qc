@@ -406,7 +406,7 @@ void() health_touch =
 
 	stuffcmd (other, "bf\n");
 
-	self.model = string_null;
+	self.model = STRING_NULL;
 	self.solid = SOLID_NOT;
 
 	self.think = SUB_regen;
@@ -491,7 +491,7 @@ void() shard_touch = // this from RMQ shard_touch
 		other.items = other.items - (other.items & (IT_ARMOR1 | IT_ARMOR2 | IT_ARMOR3)) + bit;
 	}
 	self.solid = SOLID_NOT;
-	self.model = string_null;
+	self.model = STRING_NULL;
 
 	// Supa, SP respawning items support
 	if (!deathmatch)
@@ -562,7 +562,7 @@ void() armor_touch =
 	other.items = other.items - (other.items & (IT_ARMOR1 | IT_ARMOR2 | IT_ARMOR3)) + bit;
 
 	self.solid = SOLID_NOT;
-	self.model = string_null;
+	self.model = STRING_NULL;
 	// Supa, SP respawning items support
 	if (!deathmatch)
 		CheckItemRespawn(self, 30);
@@ -871,7 +871,7 @@ void() weapon_touch =
 		return;
 
 // remove it in single player, or setup for respawning in deathmatch
-	self.model = string_null;
+	self.model = STRING_NULL;
 	self.solid = SOLID_NOT;
 	// Supa, SP respawning items support
 	if (!deathmatch)
@@ -1144,7 +1144,7 @@ local float		best;
 	self = stemp;
 
 // remove it in single player, or setup for respawning in deathmatch
-	self.model = string_null;
+	self.model = STRING_NULL;
 	self.solid = SOLID_NOT;
 	if (!deathmatch)
 		CheckItemRespawn(self, 30);
@@ -1495,7 +1495,7 @@ void() key_touch =
 	if (!coop)
 	{
 		self.solid = SOLID_NOT;
-		self.model = string_null;
+		self.model = STRING_NULL;
 	}
 
 	activator = other;
@@ -1714,7 +1714,7 @@ void() sigil_touch =
 	sound (other, CHAN_ITEM, self.noise, 1, ATTN_NORM);
 	stuffcmd (other, "bf\n");
 	self.solid = SOLID_NOT;
-	self.model = string_null;
+	self.model = STRING_NULL;
 	serverflags = serverflags | (self.spawnflags & 15);
 	self.classname = "";		// so rune doors won't find it
 
@@ -1734,7 +1734,7 @@ void() sigil_touch2 = //replacement for Skill Select Rune hack -- uses info_play
 	// sound (other, CHAN_ITEM, self.noise, 1, ATTN_NORM);
 	// stuffcmd (other, "bf\n");
 	self.solid = SOLID_NOT;
-	self.model = string_null;
+	self.model = STRING_NULL;
 	serverflags = serverflags | (self.spawnflags & 16);
 	self.classname = "";		// so rune doors won't find it
 
@@ -1856,7 +1856,7 @@ void() powerup_touch =
 	stuffcmd (other, "bf\n");
 	self.solid = SOLID_NOT;
 	other.items = other.items | self.items;
-	self.model = string_null;
+	self.model = STRING_NULL;
 
 // do the apropriate action
 	if (self.classname == "item_artifact_envirosuit")

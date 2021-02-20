@@ -1606,8 +1606,11 @@ void() ImpulseCommands =
 	if (self.impulse == 255)
 		QuadCheat ();
 // dumptruck_ds version inspired by Copper
-	if (self.impulse == 100)
-	sprint(self, version);
+  if (self.impulse == 100)
+  {
+    sprint(self, MOD_NAME);
+    sprint(self, VERSION);
+  }
 
 	// if (self.impulse == 101) // debugging armor shards -- dumptruck_ds
 	// dprint ("Armortype is");

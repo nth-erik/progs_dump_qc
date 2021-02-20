@@ -1,6 +1,11 @@
 ../progs.dat
 
-core/defs.qc //added fields, see comments for details
+//core/quakeapi.txt // defs.qc system API is uneditable, this is only a documentation
+core/quakeapi.qc // engine API declarations - use apihelp for reference
+core/const.qc // constants
+core/defs_api.qc // engine built-in API functions
+core/defs_mod.qc // editable declarations
+core/debug.qc // advanced debug functions
 core/newflags.qc //new spawnflags for all entities
 core/subs.qc //modified targets, triggers and killtargets
 monster/fight.qc

@@ -1,7 +1,23 @@
-2.0.1 January 2021
+2.0.0-gib February 2021
 
+* Changed version to 2.0.0-gib
 * Organized source files into folders by topic
 * Updated progs.src
+* Extracted core/quakeapi.qc as the immutable engine API
+* Added core/quakeapi.txt as reliable documentation for API descriptions
+* Renamed defs.qc to defs_mod.qc
+* Split mod + version into 2 variables (changed sprint accordingly)
+* Commented up constants in defs_mod.qc
+* Moved constants from defs.qc into core/const.qc
+* Moved some overlapping constant blocks to core/const.qc (112 still outside)
+* Updated string_null to full-caps because constant
+* Commented up entity properties in defs_mod.qc
+* Moved built-in function references to core/defs_api.qc
+* Replaced DummyFunction with FTEQCC "__used" prefix for .wad and .light_lev
+* Moved print_self to core/debug.qc
+* Commented up function references in defs_mod.qc
+
+------------------------------------------------------------------------------
 
 2.0.0 December 2020
 

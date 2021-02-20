@@ -191,7 +191,7 @@ void() misc_bob =
 		return;
 
 	if (self.mdl == "")
-		self.mdl = string_null;
+		self.mdl = STRING_NULL;
 	precache_model(self.mdl);
 
 	func_bob();
