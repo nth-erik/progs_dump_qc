@@ -21,7 +21,6 @@
 //
 // //============================================================================
 //
-// float START_OFF = 1;
 //
 // void() light_use =
 // {
@@ -496,16 +495,6 @@ void() misc_explobox2 =
 /*==============================================================================
 trap_spikeshooter from Hipnotic -- with additions by dumptruck_ds
 ==============================================================================*/
-
-//MED 11/09/96 added new spawnflags -- taken from hipdefs.qc - dumptruck_ds
-float SPAWNFLAG_SUPERSPIKE	= 1;
-float SPAWNFLAG_LASER = 2;
-float SPAWNFLAG_LAVABALL = 4;
-float SPAWNFLAG_ROCKET = 8;
-float SPAWNFLAG_VOREBALL = 16;
-float SPAWNFLAG_GRENADE = 32;
-float SPAWNFLAG_GIBS = 64;
-float SPAWNFLAG_SILENT = 128;
 
 void() ShalMissileTouch = //moved from Shalrath to enable shooter version
 {

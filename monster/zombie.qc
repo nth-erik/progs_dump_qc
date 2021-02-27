@@ -53,12 +53,6 @@ $frame paine29 paine30
 
 $frame cruc_1 cruc_2 cruc_3 cruc_4 cruc_5 cruc_6
 
-float   SPAWN_CRUCIFIED = 1;
-float   SPAWN_DEAD_CRUCIFIED = 4;
-float   SPAWN_SLEEPING = 16; //changed from 2 which was Zer default
-// float   SPAWN_DEAD = 4; -- not used in progs_dump -- dumptruck_ds -- this is from Zer src for my reference
-// float   SPAWN_DEAD_CRUCIFIED = 8; -- not used in progs_dump -- dumptruck_ds -- this is from Zer src for my reference
-
 //=============================================================================
 .float inpain;
 

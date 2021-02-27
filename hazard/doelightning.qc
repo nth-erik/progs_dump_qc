@@ -4,9 +4,6 @@
 
 // float ltrailLastUsed;		-- now an entity field.
 
-float LT_TOGGLE =	1;
-float LT_ACTIVE = 	2;
-
 void() ltrail_chain =
 {
 	SUB_UseTargets();

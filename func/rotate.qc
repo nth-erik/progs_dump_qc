@@ -5,42 +5,6 @@
    Distributed (unsupported) on 3.12.97
 */
 
-float STATE_ACTIVE      = 0;
-float STATE_INACTIVE    = 1;
-float STATE_SPEEDINGUP  = 2;
-float STATE_SLOWINGDOWN = 3;
-
-float STATE_CLOSED   = 4;
-float STATE_OPEN     = 5;
-float STATE_OPENING  = 6;
-float STATE_CLOSING  = 7;
-
-float STATE_WAIT = 0;
-float STATE_MOVE = 1;
-float STATE_STOP = 2;
-float STATE_FIND = 3;
-float STATE_NEXT = 4;
-
-float OBJECT_ROTATE = 0;
-float OBJECT_MOVEWALL  = 1;
-float OBJECT_SETORIGIN = 2;
-
-// spawnflags for func_rotate_entity
-float ROTATE_ENTITY_TOGGLE    = 1;
-float ROTATE_ENTITY_START_ON  = 2;
-
-// spawnflags for path_rotate
-float PATH_ROTATE_ROTATION    = 1;
-float PATH_ROTATE_ANGLES      = 2;
-float PATH_ROTATE_STOP        = 4;
-float PATH_ROTATE_NO_ROTATE   = 8;
-float PATH_ROTATE_DAMAGE      = 16;
-float PATH_ROTATE_MOVETIME    = 32;
-float PATH_ROTATE_SET_DAMAGE  = 64;
-
-// spawnflags for func_rotate_door
-float ROTATE_DOOR_STAYOPEN = 1;
-
 .float rotate_type;
 .vector neworigin;
 .vector rotate;

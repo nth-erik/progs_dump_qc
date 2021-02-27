@@ -371,7 +371,7 @@ void() monster_dead_shalrath =
 	setmodel(self, "progs/shalrath.mdl");
 	self.frame = $death7;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-41.41 -40.06 -49.38','34.52 24.32 30');

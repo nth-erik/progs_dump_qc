@@ -2,15 +2,6 @@
 // pmack
 // september 1996
 
-// TYPES
-
-float DN_N_WAIT 	= 1;
-float PLT_TOGGLE 	= 2;
-float ELEVATOR		= 4;
-float START_AT_TOP  = 8;
-float PLAT2			= 16;
-float PLAT2_BOTTOM  = 32;
-
 float elv_butn_dir;
 
 // ==================================

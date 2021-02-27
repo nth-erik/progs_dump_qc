@@ -9,9 +9,6 @@ void() trigger_reactivate =
 
 //=============================================================================
 
-float	SPAWNFLAG_NOMESSAGE = 1;
-float	SPAWNFLAG_NOTOUCH = 1;
-
 // the wait time has passed, so set back up for another activation
 void() multi_wait =
 {
@@ -325,13 +322,6 @@ TELEPORT TRIGGERS with added functions from Zerstrorer and Qmaster
 
 ==============================================================================
 */
-
-float	PLAYER_ONLY	= 1;
-float	SILENT = 2;
-float RANDOM = 4;
-float TELE_STEALTH = 8;
-float MONSTER_ONLY = 16;
-float TELE_DD = 32;
 
 void() play_teleport =
 {
@@ -836,11 +826,6 @@ void() trigger_hurt =
 // start dumptruck_ds additions //////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-float PUSH_ONCE = 1;
-float DT_STARTOFF = 8;  // trigger will start off
-float DT_SILENT = 16; // push silently
-float DT_NOISE = 32; // use custom sound using noise key/value
-
 void() trigger_push_touch =
 {
 	if (self.is_waiting) return;
@@ -1017,9 +1002,6 @@ void() trigger_monsterjump =
 //////////////////////////////////////////////////////////////////////////////
 
 //This is necros' trigger_void from Lost Chapters pack, modified by dumptruck_ds
-
-float 	MONSTER_SAFE = 1;
-float 	PLAYER_SAFE = 2;
 
 void() trigger_void_touch =
 {

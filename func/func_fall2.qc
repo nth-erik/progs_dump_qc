@@ -1,8 +1,5 @@
 .float alpha; // translucency in supported engines
 .entity char; // linker entity
-float	PLAYER_TRIGGERED = 1;
-float	MONSTER_TRIGGERED = 2;
-
 
 void() func_fall2_think =
 {

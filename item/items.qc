@@ -248,9 +248,6 @@ Megahealth will add 100 health, then start to
 rot the player back down to 100 health after 5 seconds.
 */
 
-float	H_ROTTEN = 1;
-float	H_MEGA = 2;
-float H_VIAL = 4;
 .float	healamount, healtype;
 void() health_touch;
 // void() item_megahealth_rot;
@@ -917,17 +914,17 @@ void() weapon_shotgun =
 	self.touch = weapon_touch;
 	{
 
-		if (!(self.spawnflags & (2 | 4)))
+		if (!(self.spawnflags & (SG_RUBICON2 | SG_SLAPMAP)))
 		{
-			self.spawnflags = self.spawnflags | 2;
+			self.spawnflags = self.spawnflags | SG_RUBICON2;
 		}
 
-		if (self.spawnflags & 2)
+		if (self.spawnflags & SG_RUBICON2)
 		{
 			precache_model ("progs/g_shotgn.mdl");
 			setmodel (self, "progs/g_shotgn.mdl");	//rubicon2 mdl by metlsline aka johnfitz
 		}
-		else if (self.spawnflags & 4)
+		else if (self.spawnflags & SG_SLAPMAP)
 		{
 			precache_model ("progs/g_shotty.mdl");
 			setmodel (self, "progs/g_shotty.mdl");	//ijed -- Replaced above for SlapMap's model
@@ -1159,11 +1156,9 @@ local float		best;
 
 
 
-float WEAPON_BIG2 = 1;
-
 /*QUAKED item_shells (0 .5 .8) (0 0 0) (32 32 32) LARGE_BOX X X X X SPAWN_SILENT TRIGGER_SPAWNED SUSPENDED_IN_AIR NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER RESPAWN_WITH_DM_EFFECTS NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 {
-	model ( {{ spawnflags & 1 -> { "path" : "maps/b_shell1.bsp" }, "maps/b_shell0.bsp" }} );
+	model ( {{ spawnflags & WEAPON_BIG2 -> { "path" : "maps/b_shell1.bsp" }, "maps/b_shell0.bsp" }} );
 }
 Box of 20 shells.
 LARGE_BOX is a box of 40 shells.
@@ -1220,7 +1215,7 @@ void() item_shells =
 
 /*QUAKED item_spikes (0 .5 .8) (0 0 0) (32 32 32) LARGE_BOX X X X X SPAWN_SILENT TRIGGER_SPAWNED SUSPENDED_IN_AIR NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER RESPAWN_WITH_DM_EFFECTS NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 {
-	model ( {{ spawnflags & 1 -> { "path" : "maps/b_nail1.bsp" }, "maps/b_nail0.bsp" }} );
+	model ( {{ spawnflags & WEAPON_BIG2 -> { "path" : "maps/b_nail1.bsp" }, "maps/b_nail0.bsp" }} );
 }
 Box of 25 nails.
 LARGE_BOX is a box of 50 nails.
@@ -1277,7 +1272,7 @@ void() item_spikes =
 
 /*QUAKED item_rockets (0 .5 .8) (0 0 0) (32 32 32) LARGE_BOX X X X X SPAWN_SILENT TRIGGER_SPAWNED SUSPENDED_IN_AIR NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER RESPAWN_WITH_DM_EFFECTS NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 {
-	model ( {{ spawnflags & 1 -> { "path" : "maps/b_rock1.bsp" }, "maps/b_rock0.bsp" }} );
+	model ( {{ spawnflags & WEAPON_BIG2 -> { "path" : "maps/b_rock1.bsp" }, "maps/b_rock0.bsp" }} );
 }
 */
 
@@ -1332,7 +1327,7 @@ void() item_rockets =
 
 /*QUAKED item_cells (0 .5 .8) (0 0 0) (32 32 32) LARGE_BOX X X X X SPAWN_SILENT TRIGGER_SPAWNED SUSPENDED_IN_AIR NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER RESPAWN_WITH_DM_EFFECTS NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 {
-	model ( {{ spawnflags & 1 -> { "path" : "maps/b_batt1.bsp" }, "maps/b_batt0.bsp" }} );
+	model ( {{ WEAPON_BIG2 -> { "path" : "maps/b_batt1.bsp" }, "maps/b_batt0.bsp" }} );
 }
 Box of 6 cells.
 LARGE_BOX is a box of 12 cells.
@@ -1392,10 +1387,6 @@ void() item_cells =
 DO NOT USE THIS!!!! IT WILL BE REMOVED!
 */
 
-// float WEAPON_SHOTGUN = 1;
-// float WEAPON_ROCKET = 2;
-// float WEAPON_SPIKES = 4;
-// float WEAPON_BIG = 8;
 // void() item_weapon =
 // {
 // 	if (SUB_Inhibit ())  // new spawnflags for all entities -- iw
@@ -1745,8 +1736,8 @@ void() sigil_touch2 = //replacement for Skill Select Rune hack -- uses info_play
 
 /*QUAKED item_sigil (0 .5 .8) (-16 -16 -24) (16 16 32) E1 E2 E3 E4 X SPAWN_SILENT TRIGGER_SPAWNED SUSPENDED_IN_AIR NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 {
-	model ( {{ spawnflags & 1 -> { "path" : "progs/end1.mdl" }, spawnflags & 2 -> { "path" : "progs/end2.mdl" },
-	spawnflags & 4 -> { "path" : "progs/end3.mdl" }, spawnflags & 8 -> { "path" : "progs/end4.mdl" },
+	model ( {{ spawnflags & SIGIL_E1 -> { "path" : "progs/end1.mdl" }, spawnflags & SIGIL_E2 -> { "path" : "progs/end2.mdl" },
+	spawnflags & SIGIL_E3 -> { "path" : "progs/end3.mdl" }, spawnflags & SIGIL_E4 -> { "path" : "progs/end4.mdl" },
 	 "progs/end1.mdl" }} );
 }
 End of episode rune. Use in conjuction with func_bossgate and func_episodegate.
@@ -1768,22 +1759,22 @@ void() item_sigil =
 	precache_sound ("misc/runekey.wav");
 	self.noise = "misc/runekey.wav";
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & SIGIL_E1)
 	{
 		precache_model ("progs/end1.mdl");
 		setmodel (self, "progs/end1.mdl");
 	}
-	if (self.spawnflags & 2)
+	if (self.spawnflags & SIGIL_E2)
 	{
 		precache_model2 ("progs/end2.mdl");
 		setmodel (self, "progs/end2.mdl");
 	}
-	if (self.spawnflags & 4)
+	if (self.spawnflags & SIGIL_E3)
 	{
 		precache_model2 ("progs/end3.mdl");
 		setmodel (self, "progs/end3.mdl");
 	}
-	if (self.spawnflags & 8)
+	if (self.spawnflags & SIGIL_E4)
 	{
 		precache_model2 ("progs/end4.mdl");
 		setmodel (self, "progs/end4.mdl");
@@ -2358,12 +2349,6 @@ void() DropBackpack =
 };
 
 // dumptruck_ds
-float DEFAULT = 1;
-float SHELLS = 2;
-float NAILS = 4;
-float ROCKETS = 8;
-float CELLS = 16;
-
 void() item_backpack_message =
 {
 

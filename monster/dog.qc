@@ -471,7 +471,7 @@ void() monster_dead_dog =
 	precache_model("progs/dog.mdl");
 	setmodel(self, "progs/dog.mdl");
 	self.frame = $death8;
-        if (self.spawnflags & 1)
+        if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                 setsize(self,'-24.51 -16.5 -50.37','28.2 13.81 30');

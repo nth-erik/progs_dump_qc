@@ -145,6 +145,62 @@ TRUE when model index is set to null_sprite
 */
 float mindex_inviso;
 
+/*
+------------------------------------------------------
+Total not in cooperative
+
+Total count of entites removed due to cooperative mode
+
+Credits to iw
+------------------------------------------------------
+*/
+float total_not_in_coop;
+
+/*
+--------------------------------------------------------
+Total not in single player
+
+Total count of entites removed due to single player mode
+
+Credits to iw
+--------------------------------------------------------
+*/
+float total_not_in_sp;
+
+/*
+------------------------------------------------
+Total not on hard skill specifically
+
+Total count of entites removed due to skill == 2
+
+Credits to iw
+------------------------------------------------
+*/
+float total_not_on_skill2;
+
+/*
+------------------------------------------------
+Total not on nightmare skill specifically
+
+Total count of entites removed due to skill == 3
+
+Credits to iw
+------------------------------------------------
+*/
+float total_not_on_skill3;
+
+/*
+-
+Done with inhibition summary
+
+TRUE if the inhibition summary has been printed
+
+Credits to iw
+-
+*/
+float done_inhibition_summary;
+
+
 
 /*
 =================================================

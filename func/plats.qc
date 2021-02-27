@@ -6,7 +6,6 @@ void() plat_trigger_use;
 void() plat_go_up;
 void() plat_go_down;
 void() plat_crush;
-float PLAT_LOW_TRIGGER = 1;
 
 void() plat_spawn_inside_trigger =
 {
@@ -214,8 +213,6 @@ void() func_plat =
 
 void() train_next;
 void() func_train_find;
-
-float TRAIN_RETRIGGER = 1; //johnfitz -- retriggerable trains
 
 void() train_blocked =
 {
@@ -481,7 +478,7 @@ void() teleporttrain_find =
 		return;
 	}
 
-	if (self.spawnflags & 4) // start immediately even with a targetname
+	if (self.spawnflags & TTRAIN_STARTON) // start immediately even with a targetname
 	{
 		teleporttrain_next();
 	}
@@ -534,7 +531,7 @@ void() misc_teleporttrain =
 	self.movetype = MOVETYPE_FLY;
 	precache_body_model ("progs/teleport.mdl");  // custom custom_mdls -- dumptruck_ds
 	precache_model ("progs/s_null.spr");  // invisble -- dumptruck_ds
-	if (self.spawnflags & 8)
+	if (self.spawnflags & TTRAIN_INVISIBLE)
 	// setmodel (self, "progs/s_null.spr");
 	body_model ("progs/s_null.spr");
 	else
@@ -543,7 +540,7 @@ void() misc_teleporttrain =
 	setsize (self, '-16 -16 -16', '16 16 16');
 
 	//Causes the ball to spin around like it was originally intended to.
-	if (!(self.spawnflags & 2)) 			//don't spin - helpful for invisible spawner -- dumptruck_ds
+	if (!(self.spawnflags & TTRAIN_NOSPIN)) 			//don't spin - helpful for invisible spawner -- dumptruck_ds
 	self.avelocity = '40 80 120';
 	// self.avelocity = '100 200 300';
 

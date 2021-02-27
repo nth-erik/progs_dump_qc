@@ -807,11 +807,11 @@ void() monster_dead_enforcer =
 
 	precache_model("progs/enforcer.mdl");
 	setmodel(self, "progs/enforcer.mdl");
-	if (self.spawnflags & 2)
+	if (self.spawnflags & GIB_ALT)
 	{
 		self.frame = $fdeath11;
 
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-41.16 -45.65 -51.95','21.45 25.49 30');
@@ -824,7 +824,7 @@ void() monster_dead_enforcer =
 	else
 	{
 		self.frame = $death14;
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-39.85 -29.35 -49.07','20.52 33.17 30');

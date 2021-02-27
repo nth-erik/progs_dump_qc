@@ -1,3 +1,14 @@
+2.0.1-gib March 2021
+
+* Changed version to 2.0.1-gib
+* Took apart newflags.qc to subs.qc, debug.qc and const.qc
+* Moved all constants to const.qc and add comments to them
+* Added const regular expression pattern in const.qc heading for cross-file
+  search in editors
+* Moved missing spawnflags to named constants in const.qc
+
+------------------------------------------------------------------------------
+
 2.0.0-gib February 2021
 
 * Changed version to 2.0.0-gib

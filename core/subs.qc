@@ -595,3 +595,62 @@ float() CheckValidTouch =
 	return TRUE;
 }
 float(float a, float b) not = { return a - (a & b); } // fix not issue in client.qc - Copper -- dumptruck_ds
+
+/*
+----------------------------------------------------------------------------
+Inhibit entity
+
+Removes current entity, increments inhibition count and returns TRUE if the
+entity should not spawn in the current game mode or skill level based on the
+following spawnflags:
+
+  4096:  Not in Cooperative mode
+  8192:  Not in Single Player mode
+  32768: Not on Hard skill specifically
+  65536: Not on Nightmare skill specifically
+
+Call at the first line of every spawn function like so:
+
+  if (SUB_Inhibit ())
+    return;
+
+Credits to iw
+----------------------------------------------------------------------------
+*/
+float() SUB_Inhibit =
+{
+  if (coop && (self.spawnflags & SPAWNFLAG_NOT_IN_COOP))
+  {
+    total_not_in_coop = total_not_in_coop + 1;
+    remove (self);
+    return TRUE;
+  }
+
+  if (!coop && !deathmatch && (self.spawnflags & SPAWNFLAG_NOT_IN_SP))
+  {
+    total_not_in_sp = total_not_in_sp + 1;
+    remove (self);
+    return TRUE;
+  }
+
+  // The built-in skill level spawnflags are ignored in Deathmatch, so
+  // we ignore the new ones in Deathmatch, too.  -- iw
+  if (!deathmatch)
+  {
+    if (skill == 2 && (self.spawnflags & SPAWNFLAG_NOT_ON_SKILL2))
+    {
+      total_not_on_skill2 = total_not_on_skill2 + 1;
+      remove (self);
+      return TRUE;
+    }
+
+    if (skill == 3 && (self.spawnflags & SPAWNFLAG_NOT_ON_SKILL3))
+    {
+      total_not_on_skill3 = total_not_on_skill3 + 1;
+      remove (self);
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+};

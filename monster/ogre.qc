@@ -1,5 +1,3 @@
-float MONSTER_FLAK_OGRE				= 4;
-float	FL_NOSELECT			= 8192;	//ignored by entity selector
 .float spikecount;	//bdw - saves up flak hits to do a single damage next frame - currently only used for flak ogre
 
 /*
@@ -237,14 +235,8 @@ void() BDW_OgreFireFlak =
 /* start Preach Ogre Marksman tutorial here -- dumptruck_ds*/
 /////////////////////////////////////////////////////////////
 
-//speed an ogre grenade is fired at
-float OGRE_G_VEL = 600;
-
 //fixme: get the correct gravity strength for the level
 float pgrav = 800;
-
-//a default angle to fire at if the enemy is too far away
-float OGRE_DEFAULT_ELEVATION = 30;
 
 //uses QuakeC builtins to calculate tan of angle
 //WARNING: uses makevectors! This overwrites the v_forward... globals
@@ -1277,11 +1269,11 @@ void() monster_dead_ogre =
 
 	precache_model("progs/ogre.mdl");
 	setmodel(self, "progs/ogre.mdl");
-	if (self.spawnflags & 2)
+	if (self.spawnflags & GIB_ALT)
 	{
 		self.frame = $death14;
 
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-40.64 -54.06 -54.1','29.42 54.63 30');
@@ -1294,7 +1286,7 @@ void() monster_dead_ogre =
 	else
 	{
 		self.frame = $bdeath10;
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-45.64 -29.46 -54.52','33.87 39.18 30');

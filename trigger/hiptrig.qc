@@ -7,9 +7,6 @@
    Do not distribute.
 */
 
-float USE_SILV_KEY = 8;
-float USE_GOLD_KEY = 16;
-
 /*
 ================
 keytrigger_unlock
@@ -140,7 +137,6 @@ trigger_setgravity
 
 ==============================================================================
 */
-float DT_GRAVTOFF = 8;  // trigger will start off
 
 void() grav_toggle = //dumptruck_ds based on hipnotic blocker_use
 

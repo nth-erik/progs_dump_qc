@@ -570,11 +570,11 @@ void() monster_dead_hell_knight =
 
 	precache_model("progs/hknight.mdl");
 	setmodel(self, "progs/hknight.mdl");
-	if (self.spawnflags & 2)
+	if (self.spawnflags & GIB_ALT)
 	{
 		self.frame = $deathb9;
 
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-68.96 -20.43 -53.98','34.8 21.15 30');
@@ -587,7 +587,7 @@ void() monster_dead_hell_knight =
 	else
 	{
 		self.frame = $death12;
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-42.05 -31.07 -51.56','46.34 25.02 30');

@@ -523,7 +523,7 @@ void() monster_dead_wizard =
 	setmodel(self, "progs/wizard.mdl");
 	self.frame = $death8;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-50.75 -27.46 -55.19','31.81 33.61 30');

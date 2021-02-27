@@ -596,11 +596,11 @@ void() monster_dead_army =
 
 	precache_model("progs/soldier.mdl");
 	setmodel(self, "progs/soldier.mdl");
-	if (self.spawnflags & 2)
+	if (self.spawnflags & GIB_ALT)
 	{
 		self.frame = $death10;
 
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-38.27 -30.47 -50.3','22.1 25.35 30');
@@ -613,7 +613,7 @@ void() monster_dead_army =
 	else
 	{
 		self.frame = $deathc11;
-		if (self.spawnflags & 1)
+		if (self.spawnflags & GIB_SOLID)
 		{
 			self.solid = SOLID_BBOX;
                 	setsize(self,'-39.85 -29.35 -49.07','20.52 33.17 30');

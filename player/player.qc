@@ -678,7 +678,7 @@ void() player_dead_axe =
 	setmodel(self, "progs/player.mdl");
 	self.frame = $axdeth9;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-38.72 -5.83 -50.45','28.73 33.85 30');
@@ -704,7 +704,7 @@ void() player_dead_face_down =
 	setmodel(self, "progs/player.mdl");
 	self.frame = $deathc14;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-50.28 -23.55 -49.85','30.66 14.49 30');
@@ -730,7 +730,7 @@ void() player_dead_on_side =
 	setmodel(self, "progs/player.mdl");
 	self.frame = $deathe9;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-38.72 -5.83 -50.45','28.73 33.85 30');

@@ -31,9 +31,6 @@ void(entity client) GiveAllKeys;
 void(entity client, float item_flags, float customkey_flags) RemoveKeys;
 
 
-// The highest bitflag that will be assigned to a custom key.
-float FINAL_CUSTOM_KEY = 4194304;
-
 // The highest bitflag that has been assigned to a custom key.
 float highest_custom_key;
 

@@ -1,10 +1,3 @@
-
-float DOOR_START_OPEN = 1;
-float DOOR_DONT_LINK = 4;
-float DOOR_GOLD_KEY = 8;
-float DOOR_SILVER_KEY = 16;
-float DOOR_TOGGLE = 32;
-float DOOR_DOOM_STYLE_UNLOCK = 64;
 /*
 
 Doors are similar to buttons, but can spawn a fat trigger field around them
@@ -301,7 +294,7 @@ void() LinkDoors =
 
 	if (self.enemy)
 		return;		// already linked by another door
-	if (self.spawnflags & 4)
+	if (self.spawnflags & DOOR_DONT_LINK)
 	{
 		self.owner = self.enemy = self;
 		return;		// don't want to link this door
@@ -534,13 +527,6 @@ void() fd_secret_move4;
 void() fd_secret_move5;
 void() fd_secret_move6;
 void() fd_secret_done;
-
-float SECRET_OPEN_ONCE = 1;		// stays open
-float SECRET_1ST_LEFT = 2;		// 1st move is left of arrow
-float SECRET_1ST_DOWN = 4;		// 1st move is down from arrow
-float SECRET_NO_SHOOT = 8;		// only opened by trigger
-float SECRET_YES_SHOOT = 16;	// shootable even if targeted
-
 
 void () fd_secret_use =
 {

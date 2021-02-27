@@ -5,14 +5,6 @@
    Do not distribute.
 */
 
-float COUNTER_TOGGLE = 1;
-float COUNTER_LOOP = 2;
-float COUNTER_STEP = 4;
-float COUNTER_RESET = 8;
-float COUNTER_RANDOM = 16;
-float COUNTER_FINISHCOUNT = 32;
-float COUNTER_START_ON = 64;
-
 void() counter_on_use;
 void() counter_off_use;
 

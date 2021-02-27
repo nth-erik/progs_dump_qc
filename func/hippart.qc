@@ -5,9 +5,6 @@
    Do not distribute.
 */
 
-//float START_OFF = 1;
-float USE_COUNT = 1;
-
 void () particlefield_XZ =
 	{
 	local vector pos;

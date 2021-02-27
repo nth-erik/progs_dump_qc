@@ -2,8 +2,6 @@
 // pmack
 // sept 96
 
-float ELVTR_DOWN = 1;
-
 void() elvtr_button_wait;
 void() elvtr_button_return;
 

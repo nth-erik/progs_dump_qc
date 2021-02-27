@@ -8,7 +8,7 @@
 
 void() play_sound_use =
    {
-   if (self.spawnflags & 1)
+   if (self.spawnflags & SOUND_TOGGLE)
       {
       if (self.state == 0)
          {
@@ -70,7 +70,7 @@ void() play_sound_triggered =
    if (self.speed == -1)
       // self.speed = 0;
       self.speed = ATTN_NONE;
-   if (self.spawnflags & 1)
+   if (self.spawnflags & SOUND_TOGGLE)
       if (self.impulse == 0)
          self.impulse = 7;
    self.use = play_sound_use;
@@ -528,7 +528,7 @@ void() gib_head_demon =
 	setmodel(self, "progs/h_demon.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-13.64 -16.77 -0.11','17.44 16.22 30');
@@ -553,7 +553,7 @@ void() gib_head_dog =
 	setmodel(self, "progs/h_dog.mdl");
         self.frame = 0;  //was 1 -- dumptruck_ds
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-9.66 -11.89 -0.2','6.57 7.96 13.29');
@@ -578,7 +578,7 @@ void() gib_head_army =
 	setmodel(self, "progs/h_guard.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-9.67 -8.27 -0.28','4.05 4.8 13.41');
@@ -602,7 +602,7 @@ void() gib_head_hell_knight =
 	setmodel(self, "progs/h_hellkn.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-7.9 -12.97 -0.63','10.55 8.87 21.06');
@@ -626,7 +626,7 @@ void() gib_head_knight =
 	setmodel(self, "progs/h_knight.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-8.17 -7.47 -0.13','8.36 6.5 30');
@@ -651,7 +651,7 @@ void() gib_head_enforcer =
 	setmodel(self, "progs/h_mega.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-10.63 -10.23 -0.05','9.27 8.25 30');
@@ -675,7 +675,7 @@ void() gib_head_ogre =
 	setmodel(self, "progs/h_ogre.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-12.35 -15.7 -0.17','10.67 13.88 30');
@@ -699,7 +699,7 @@ void() gib_head_player =
 	setmodel(self, "progs/h_player.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-9.67 -12.38 -2.1','11.49 50.7 30');
@@ -723,7 +723,7 @@ void() gib_head_shalrath =
 	setmodel(self, "progs/h_shal.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-19.85 -19.09 -1.44','13.72 16.8 30');
@@ -747,7 +747,7 @@ void() gib_head_shambler =
         setmodel(self, "progs/h_shams.mdl");
         self.frame = 0; //was 1, caused an error -- dumptruck_ds
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-15.15 -20.638 -0.45','21.44 21.76 30');
@@ -771,7 +771,7 @@ void() gib_head_wizard =
 	setmodel(self, "progs/h_wizard.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-10.41 -8.66 -0.54','6.52 10.82 30');
@@ -795,7 +795,7 @@ void() gib_misc_1 =
 	setmodel(self, "progs/gib1.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-3.57 -8.06 -3.34','3.69 8.31 30');
@@ -819,7 +819,7 @@ void() gib_misc_2 =
 	setmodel(self, "progs/gib2.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-12.68 -14.83 -6.19','13.53 14.57 30');
@@ -843,7 +843,7 @@ void() gib_misc_3 =
 	setmodel(self, "progs/gib3.mdl");
         self.frame = 0;
 
-	if (self.spawnflags & 1)
+	if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                	setsize(self,'-18.95 -15.92 -3.13','13.17 15.66 30');
@@ -864,8 +864,6 @@ void() gib_misc_3 =
 // noise = sound to play when triggered
 // wait = wait this long before falling
 // ==============================================================================*/
-float DONT_FADE = 1;
-
 void() func_fall_think =
 {
     if (self.cnt == TRUE && self.attack_finished < time)

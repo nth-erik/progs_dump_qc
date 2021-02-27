@@ -346,7 +346,7 @@ void() changelevel_touch =
 	sigil_touch2();
 	}
 
-	if ( (self.spawnflags & 1) && (deathmatch == 0) )
+	if ( (self.spawnflags & NO_INTERMISSION) && (deathmatch == 0) )
 	{	// NO_INTERMISSION
 		GotoNextMap();
 		return;
@@ -380,15 +380,6 @@ else
 	setorigin( self, self.origin + '8000 8000 8000');
 	}
 };
-/*
-dumptruck_ds
-
-If DT_EXITOFF flag is set, this moves the trigger
-brush out of the playable area. This can be targeted
-and toggled off and on.
- */
-
-float DT_EXITOFF = 8;
 
 void() trigger_changelevel =
 {

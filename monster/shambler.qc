@@ -496,7 +496,7 @@ void() monster_dead_shambler =
 	precache_model("progs/shambler.mdl");
 	setmodel(self, "progs/shambler.mdl");
 	self.frame = $death11;
-        if (self.spawnflags & 1)
+        if (self.spawnflags & GIB_SOLID)
 	{
 		self.solid = SOLID_BBOX;
                 setsize(self,'-77.09 -72.17 -51.52','47.44 98.15 30');

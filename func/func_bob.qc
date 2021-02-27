@@ -3,9 +3,6 @@
 .float distance;
 .float waitmin2;
 
-float BOB_COLLISION = 2;		// Collision for misc_bob
-float BOB_NONSOLID = 4;			// Non solid for func_bob
-
 /*QUAKED func_bob (0 .5 .8) X X X X X X X X NOT_ON_EASY NOT_ON_NORMAL NOT_ON_HARD_OR_NIGHTMARE NOT_IN_DEATHMATCH NOT_IN_COOP NOT_IN_SINGLEPLAYER X NOT_ON_HARD_ONLY NOT_ON_NIGHTMARE_ONLY
 A SOLID bmodel that gently moves back and forth
 -------- KEYS --------
