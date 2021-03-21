@@ -190,15 +190,34 @@ Credits to iw
 float total_not_on_skill3;
 
 /*
--
+-----------------------------------------------
 Done with inhibition summary
 
 TRUE if the inhibition summary has been printed
 
 Credits to iw
--
+-----------------------------------------------
 */
 float done_inhibition_summary;
+
+/*
+-------------------------------------------------------
+Last player spawn point
+
+Used for spawning the player at the next spawn location
+-------------------------------------------------------
+*/
+entity lastspawn;
+
+/*
+-------------------------------------------------------------------------
+Next player corpse index
+
+Used for copying the laying corpse when a player respawns so the place of
+death is marked longer
+-------------------------------------------------------------------------
+*/
+entity bodyque_head;
 
 
 
@@ -1717,7 +1736,7 @@ Functions that are defined before given a process
 
 /*
 ------------------------------
-Utility Subroutine definitions
+Utility subroutine definitions
 ------------------------------
 */
 void(vector tdest, float tspeed, void() func) SUB_CalcMove;
@@ -1771,3 +1790,10 @@ Debug routine definitions
 -------------------------
 */
 void(string type, string text) print_self;
+
+/*
+---------------------------------
+Miscellaneous routine definitions
+---------------------------------
+*/
+float(entity targ) visible;

@@ -52,8 +52,6 @@ exclude an entity from one of these skill levels without affecting the other.
 ==============================================================================
 */
 
-
-
 /*
 --------------------------------------------------------------------------
 Init new spawnflags

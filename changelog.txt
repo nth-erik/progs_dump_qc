@@ -2,10 +2,19 @@
 
 * Changed version to 2.0.1-gib
 * Took apart newflags.qc to subs.qc, debug.qc and const.qc
-* Moved all constants to const.qc and add comments to them
+* Moved all constants to const.qc and added comments to them
 * Added const regular expression pattern in const.qc heading for cross-file
   search in editors
 * Moved missing spawnflags to named constants in const.qc
+* Updated math.qc formatting and comments
+* Updated subs.qc formatting and comments
+* Extracted DelayedUse to own function
+* Extracted ShowMessage to own function
+* Extracted KillSpecificTarget to own function
+* Updated world.qc formatting and comments
+* Deleted bodyque function, because neither QS nor WinQuake printed dev errors
+* Moved bodyque_head to defs_mod.qc
+* Extracted a bunch of precaches and inits to own functions in world.qc
 
 ------------------------------------------------------------------------------
 

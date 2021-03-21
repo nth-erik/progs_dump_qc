@@ -1,6 +1,3 @@
-
-
-
 /*
 =======================================
 System functions provided by the engine
@@ -37,6 +34,7 @@ void(entity e, vector o) setorigin = #2;
 -------------------------------------------
 Set model to render for entity
 
+Sets size and links entity into world
 Advisable to set .movetype and .solid first
 The model should be precached before use
 

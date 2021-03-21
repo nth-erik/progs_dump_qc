@@ -1,91 +1,97 @@
 /*
- * math.qc
- *
- * Author: Joshua Skelton joshua.skelton@gmail.com
- *
- * A collection of helpful math functions.
- */
+==============================================================================
 
-// Forward declarations
-float(float value, float minValue, float maxValue) clamp;
-float(float a, float b) mod;
-float(float x) sign;
-float(float value, float minValue, float maxValue) wrap;
+Mathematical functions
+
+Numeric operations on floating point number values.
+
+Credits to Joshua Skelton joshua.skelton@gmail.com
+
+==============================================================================
+*/
 
 /*
- * clamp
- *
- * Limits the given value to the given range.
- *
- * value: A number
- *
- * minValue: The minimum value of the range
- *
- * maxValue: The maximum value of the range
- *
- * Returns: A number within the given range.
- */
-float(float value, float minValue, float maxValue) clamp = {
-    if (value < minValue) {
-        return minValue;
-    }
-    else if (value > maxValue) {
-        return maxValue;
-    }
+---------------------------------------------------------
+Clamp value
 
-    return value;
+Returns input value if between the lower and upper limits
+Returns lower limit limit if input value is less
+Returns the upper limit if input value is greater
+
+value:    Input number
+minValue: Lower limit
+maxValue: Upper limit
+
+Credits to Joshua Skelton
+---------------------------------------------------------
+*/
+
+float(float value, float minValue, float maxValue) clamp =
+{
+  if (value < minValue)
+    return minValue;
+  else if (value > maxValue)
+    return maxValue;
+
+  return value;
 };
 
 /*
- * mod
- *
- * Returns the remainder after the division of a by n
- *
- * a: The dividend
- *
- * b: The divisor
- *
- * Returns: The remainder of a divided by n
- */
-float(float a, float n) mod = {
-    return a - (n * floor(a / n));
+-------------------------------------------
+Modulo
+
+Returns the remainder of 'a' divided by 'n'
+
+a: Dividend
+n: Divisor
+
+Credits to Joshua Skelton
+-------------------------------------------
+*/
+float(float a, float n) mod =
+{
+  return a - (n * floor(a / n));
+}
+
+/*
+-----------------------------
+Sign
+
+Returns +1 if 'x' is positive
+Returns -1 if 'x' is negative
+Returns 0 if 'x' is 0
+
+x: The number
+
+Credits to Joshua Skelton
+-----------------------------
+*/
+float(float x) sign =
+{
+  if (x > 0)
+    return 1;
+  else if (x < 0)
+    return -1;
+
+  return 0;
 };
 
 /*
- * sign
- *
- * Returns an indication of the sign of the given number.
- *
- * x: A number
- *
- * Returns: -1 if x < 0, 0 if x == 0, 1 if x > 0.
- */
-float(float x) sign = {
-    if (x > 0) {
-        return 1;
-    }
-    else if (x < 0) {
-        return -1;
-    }
+------------------------------------------------------------
+Wrap
 
-    return 0;
-};
+Returns input value if between the lower and upper limits
+Returns a value looped back around if exceeding either limit
 
-/*
- * wrap
- *
- * Limits the given value to the given range and will wrap the value to the
- * the other end of the range if exceeded.
- *
- * value: A number
- *
- * minValue: The minimum value of the range
- *
- * maxValue: The maximum value of the range
- *
- * Returns: A number within the given range.
- */
-float(float value, float minValue, float maxValue) wrap = {
+value:    Input number
+minValue: Lower limit
+maxValue: Upper limit
+
+Credits to Joshua Skelton
+------------------------------------------------------------
+*/
+float(float value, float minValue, float maxValue) wrap =
+{
     local float range = maxValue - minValue;
 
     return mod(value - minValue, range + 1) + minValue;
